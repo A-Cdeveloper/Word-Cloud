@@ -1,5 +1,5 @@
 import TopicDetails from "./components/TopicDetails";
-import { WordList } from "./components/WordList";
+import WordList from "./components/WordList";
 import { useFetchTopics } from "./hooks/useFetchTopics";
 
 const App = () => {
