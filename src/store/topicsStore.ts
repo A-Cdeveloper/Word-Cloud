@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 import type { Topic } from "../types";
 
 type TopicsState = {
@@ -12,13 +13,22 @@ type TopicsState = {
   setError: (error: string | null) => void;
 };
 
-export const useTopicsStore = create<TopicsState>((set) => ({
-  topics: [],
-  selectedTopic: null,
-  loading: false,
-  error: null,
-  setTopics: (topics) => set({ topics }),
-  setSelectedTopic: (topic) => set({ selectedTopic: topic }),
-  setLoading: (loading) => set({ loading }),
-  setError: (error) => set({ error }),
-}));
+export const useTopicsStore = create<TopicsState>()(
+  persist(
+    (set) => ({
+      topics: [],
+      selectedTopic: null,
+      loading: false,
+      error: null,
+      setTopics: (topics) => set({ topics }),
+      setSelectedTopic: (topic) => set({ selectedTopic: topic }),
+      setLoading: (loading) => set({ loading }),
+      setError: (error) => set({ error }),
+    }),
+    {
+      name: "topics",
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({ selectedTopic: state.selectedTopic }),
+    }
+  )
+);
