@@ -5,6 +5,7 @@ export type Sentiment = {
 };
 
 export type Topic = {
+  id: string;
   label: string;
   volume: number;
   sentimentScore: number;
