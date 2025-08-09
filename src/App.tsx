@@ -1,7 +1,10 @@
 import TopicDetails from "./components/TopicDetails";
 import { WordList } from "./components/WordList";
+import { useFetchTopics } from "./hooks/useFetchTopics";
 
 const App = () => {
+  useFetchTopics();
+
   return (
     <div className="min-h-screen text-gray-900 max-w-screen-2xl mx-auto">
       <header className="p-4">
