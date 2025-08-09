@@ -1,5 +1,6 @@
+import { createJSONStorage, persist } from "zustand/middleware";
+
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
 import type { Topic } from "../types";
 
 type TopicsState = {
@@ -7,10 +8,14 @@ type TopicsState = {
   selectedTopic: Topic | null;
   loading: boolean;
   error: string | null;
+  minVolume: number;
+  maxVolume: number;
   setTopics: (topics: Topic[]) => void;
   setSelectedTopic: (topic: Topic | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
+  setMinVolume: (minVolume: number) => void;
+  setMaxVolume: (maxVolume: number) => void;
 };
 
 export const useTopicsStore = create<TopicsState>()(
@@ -20,10 +25,14 @@ export const useTopicsStore = create<TopicsState>()(
       selectedTopic: null,
       loading: false,
       error: null,
+      minVolume: 0,
+      maxVolume: 0,
       setTopics: (topics) => set({ topics }),
       setSelectedTopic: (topic) => set({ selectedTopic: topic }),
       setLoading: (loading) => set({ loading }),
       setError: (error) => set({ error }),
+      setMinVolume: (minVolume) => set({ minVolume }),
+      setMaxVolume: (maxVolume) => set({ maxVolume }),
     }),
     {
       name: "topics",
