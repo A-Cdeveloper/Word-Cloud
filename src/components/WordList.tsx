@@ -1,10 +1,14 @@
 import { useTopicsStore } from "../store/topicsStore";
 import Word from "./Word";
 
-export const WordList = () => {
+const WordList = () => {
   const topics = useTopicsStore((state) => state.topics);
+  const loading = useTopicsStore((state) => state.loading);
+  const error = useTopicsStore((state) => state.error);
 
-  if (topics.length === 0) return <p>Loading topics...</p>;
+  if (loading) return <p>Loading topics...</p>;
+  if (error) return <p className="text-red-600">{error}</p>;
+  if (topics.length === 0) return <p>No topics found</p>;
 
   return (
     <ul className="space-y-2">
@@ -14,3 +18,5 @@ export const WordList = () => {
     </ul>
   );
 };
+
+export default WordList;
