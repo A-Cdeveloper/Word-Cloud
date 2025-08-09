@@ -1,24 +1,32 @@
-import type { Topic } from "../types";
+import { fontSizeClasses } from "../constants/fontSizes";
 import { useTopicsStore } from "../store/topicsStore";
+import type { Topic } from "../types";
+import { getColorBySentiment } from "../utils/getColorBySentiment";
+import { scaleFontSize } from "../utils/scaleFontSize";
 
 const Word = ({ topic }: { topic: Topic }) => {
   const setSelectedTopic = useTopicsStore((state) => state.setSelectedTopic);
+  const minVolume = useTopicsStore((state) => state.minVolume);
+  const maxVolume = useTopicsStore((state) => state.maxVolume);
 
   const handleClick = () => {
     setSelectedTopic(topic);
   };
 
+  const fontSizeClass = scaleFontSize(topic.volume, minVolume, maxVolume);
+  const colorClass = getColorBySentiment(topic.sentimentScore);
+
   return (
     <li
       onClick={handleClick}
-      className="cursor-pointer hover:text-blue-600"
+      className={`inline-block px-1 cursor-pointer font-semibold scale-100 hover:scale-105 transition-all duration-300 ${fontSizeClasses[fontSizeClass]} ${colorClass}`}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") handleClick();
       }}
     >
-      {topic.label}
+      {topic.label} - {topic.sentimentScore.toFixed(2)}
     </li>
   );
 };
