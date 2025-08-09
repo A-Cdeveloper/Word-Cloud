@@ -1,4 +1,5 @@
 import { useTopicsStore } from "../store/topicsStore";
+import Word from "./Word";
 
 export const WordList = () => {
   const topics = useTopicsStore((state) => state.topics);
@@ -8,9 +9,7 @@ export const WordList = () => {
   return (
     <ul className="space-y-2">
       {topics.map((topic) => (
-        <li key={topic.label} className="cursor-pointer hover:text-blue-600">
-          {topic.label}
-        </li>
+        <Word key={topic.id} topic={topic} />
       ))}
     </ul>
   );
