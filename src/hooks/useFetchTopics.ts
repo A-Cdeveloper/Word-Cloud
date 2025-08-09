@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTopicsStore } from "../store/topicsStore";
+import type { Topic } from "../types";
 
 export const useFetchTopics = () => {
   const setTopics = useTopicsStore((state) => state.setTopics);
@@ -14,8 +15,8 @@ export const useFetchTopics = () => {
       try {
         const res = await fetch("/topics.json");
         if (!res.ok) throw new Error("Failed to fetch topics");
-        const data = await res.json();
-        setTopics(data);
+        const data: { topics: Topic[] } = await res.json();
+        setTopics(data.topics);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unknown error");
       } finally {
