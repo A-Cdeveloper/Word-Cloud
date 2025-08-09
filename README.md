@@ -23,6 +23,7 @@ The source data is located in the `public/topics.json` file.
 - Tailwind CSS 3.4.17
 - TypeScript ~5.8.3
 - ESLint 9.32.0
+- Zustand 5.0.7 (State Management)
 
 ## Build and Deploy
 
@@ -42,8 +43,13 @@ npm run preview
 
 ## Status
 
-- Project setup with React + Vite
-- Tailwind CSS installed and configured
-- `topics.json` placed in the public folder
+- Project setup with React + Vite + TypeScript
+- Tailwind CSS installed and configured with custom colors and font sizes
+- `topics.json` placed in the public folder and integrated
+- Zustand store implemented with topics, loading, error states
+- Custom hook with error handling and AbortController
+- Word cloud core features (6 font sizes, sentiment colors, click interaction)
+- Topic details with metadata display
+- Centralized error handling with user-friendly messages
 
 _(README will be updated throughout the development process.)_
