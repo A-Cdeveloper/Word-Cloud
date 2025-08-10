@@ -24,7 +24,7 @@ const WordList = () => {
   if (topics.length === 0) return <p>No topics found</p>;
 
   return (
-    <ul className="space-y-2">
+    <ul className="flex flex-wrap items-center justify-center  px-6  md:px-10 xl:px-32">
       {topics.map((topic) => (
         <Word key={topic.id} topic={topic} />
       ))}

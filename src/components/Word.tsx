@@ -19,7 +19,7 @@ const Word = ({ topic }: { topic: Topic }) => {
   return (
     <li
       onClick={handleClick}
-      className={`inline-block px-1 cursor-pointer font-semibold scale-100 hover:scale-105 transition-all duration-300 ${fontSizeClasses[fontSizeClass]} ${colorClass}`}
+      className={`inline-block px-2 cursor-pointer font-semibold scale-100 hover:scale-105 transition-all duration-100 ${fontSizeClasses[fontSizeClass]} ${colorClass}`}
       role="button"
       tabIndex={0}
     >
