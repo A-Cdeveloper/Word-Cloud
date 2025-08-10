@@ -24,6 +24,25 @@ The source data is located in the `public/topics.json` file.
 - TypeScript ~5.8.3
 - ESLint 9.32.0
 - Zustand 5.0.7 (State Management)
+- Vitest 3.2.4 (Testing Framework)
+
+## Testing
+
+### Running Tests
+
+```
+# Run tests in watch mode
+npm run test
+
+# Run tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage report
+npm run test:coverage
+```
 
 ## Build and Deploy
 
@@ -51,5 +70,8 @@ npm run preview
 - Word cloud core features (6 font sizes, sentiment colors, click interaction)
 - Topic details with metadata display
 - Centralized error handling with user-friendly messages
+- Vitest testing framework configured with coverage reporting
+- Unit tests for all components, hooks, and utility functions
+- ESLint configuration with React hooks rules
 
 _(README will be updated throughout the development process.)_
