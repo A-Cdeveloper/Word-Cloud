@@ -8,8 +8,16 @@ A frontend application to display a Word Cloud based on data from `topics.json`.
 
 1.  Clone the repository
 2.  Run `npm install`
-3.  Run the development server with `npm run dev`
-4.  Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## Development
+
+To run the application in development mode:
+
+```
+npm run dev
+```
+
+This will start the Vite development server on `http://localhost:5173` with hot reload enabled.
 
 ## Data
 
@@ -25,10 +33,11 @@ The source data is located in the `public/topics.json` file.
 - ESLint 9.32.0
 - Zustand 5.0.7 (State Management)
 - Vitest 3.2.4 (Testing Framework)
+- Cypress 14.5.4 (E2E Testing Framework)
 
 ## Testing
 
-### Running Tests
+### Unit Tests (Vitest)
 
 ```
 # Run tests in watch mode
@@ -42,6 +51,16 @@ npm run test:ui
 
 # Run tests with coverage report
 npm run test:coverage
+```
+
+### E2E Tests (Cypress)
+
+```
+# Open Cypress Test Runner
+npm run cy:open
+
+# Run Cypress tests in headless mode
+npx cypress run
 ```
 
 ## Build and Deploy
@@ -59,19 +78,3 @@ To preview the production build locally, run:
 ```
 npm run preview
 ```
-
-## Status
-
-- Project setup with React + Vite + TypeScript
-- Tailwind CSS installed and configured with custom colors and font sizes
-- `topics.json` placed in the public folder and integrated
-- Zustand store implemented with topics, loading, error states
-- Custom hook with error handling and AbortController
-- Word cloud core features (6 font sizes, sentiment colors, click interaction)
-- Topic details with metadata display
-- Centralized error handling with user-friendly messages
-- Vitest testing framework configured with coverage reporting
-- Unit tests for all components, hooks, and utility functions
-- ESLint configuration with React hooks rules
-
-_(README will be updated throughout the development process.)_
