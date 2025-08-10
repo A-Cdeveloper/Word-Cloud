@@ -22,6 +22,7 @@ const Word = ({ topic }: { topic: Topic }) => {
       className={`inline-block px-2 cursor-pointer font-semibold scale-100 hover:scale-105 transition-all duration-100 ${fontSizeClasses[fontSizeClass]} ${colorClass}`}
       role="button"
       tabIndex={0}
+      data-testid={`word-${topic.id}`}
     >
       {topic.label}
     </li>

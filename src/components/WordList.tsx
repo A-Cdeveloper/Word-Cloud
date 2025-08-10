@@ -19,12 +19,22 @@ const WordList = () => {
     }
   }, [topics, setMinVolume, setMaxVolume]);
 
-  if (loading) return <p>Loading topics...</p>;
-  if (error) return <p className="text-red-600">{error}</p>;
-  if (topics.length === 0) return <p>No topics found</p>;
+  if (loading) return <p data-testid="loading">Loading topics...</p>;
+  if (error)
+    return (
+      <p data-testid="error" className="text-red-600">
+        {error}
+      </p>
+    );
+
+  if (topics.length === 0 && !loading && error === null)
+    return <p data-testid="no-topics">No topics found</p>;
 
   return (
-    <ul className="flex flex-wrap items-center justify-center  px-6  md:px-10 xl:px-32">
+    <ul
+      data-testid="word-list"
+      className="flex flex-wrap items-center justify-center  px-6  md:px-10 xl:px-32"
+    >
       {topics.map((topic) => (
         <Word key={topic.id} topic={topic} />
       ))}

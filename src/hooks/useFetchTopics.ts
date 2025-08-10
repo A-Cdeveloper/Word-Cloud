@@ -22,13 +22,13 @@ export const useFetchTopics = () => {
           throw new Error(`Failed to fetch topics (status: ${res.status})`);
         }
         const data: { topics: Topic[] } = await res.json();
-        // update store
+
         setTopics(data.topics);
       } catch (error) {
         handleError(error, setError);
-      } finally {
-        setLoading(false);
       }
+
+      setLoading(false);
     };
 
     fetchTopics();

@@ -8,7 +8,9 @@ const App = () => {
   return (
     <div className="min-h-screen max-w-screen-2xl mx-auto">
       <header className="p-4 border-b">
-        <h1 className="text-4xl font-bold text-center">Word Cloud Challenge</h1>
+        <h1 className="text-4xl font-bold text-center" data-testid="app-title">
+          Word Cloud Challenge
+        </h1>
       </header>
 
       <main className="flex flex-col md:flex-row">

@@ -4,11 +4,13 @@ const TopicDetails = () => {
   const selectedTopic = useTopicsStore((state) => state.selectedTopic);
 
   if (!selectedTopic) {
-    return <p>Please select a topic to see details.</p>;
+    return (
+      <p data-testid="no-selection">Please select a topic to see details.</p>
+    );
   }
 
   return (
-    <div className="space-y-4">
+    <div data-testid="topic-details" className="space-y-4">
       <h2 className="text-base mb-2">
         Information on topic: "
         <span className="font-semibold">{selectedTopic.label}</span>"
