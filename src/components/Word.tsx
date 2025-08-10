@@ -22,11 +22,8 @@ const Word = ({ topic }: { topic: Topic }) => {
       className={`inline-block px-1 cursor-pointer font-semibold scale-100 hover:scale-105 transition-all duration-300 ${fontSizeClasses[fontSizeClass]} ${colorClass}`}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") handleClick();
-      }}
     >
-      {topic.label} - {topic.sentimentScore.toFixed(2)}
+      {topic.label}
     </li>
   );
 };

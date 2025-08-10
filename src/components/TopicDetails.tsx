@@ -12,11 +12,17 @@ const TopicDetails = () => {
       <h2 className="text-base mb-2">
         Information on topic: "<strong>{selectedTopic.label}</strong>"
       </h2>
-      <p>Total Mentions: {selectedTopic.volume}</p>
+      <p data-testid="total-mentions">Total Mentions: {selectedTopic.volume}</p>
       <ul>
-        <li>Positive Mentions: {selectedTopic.sentiment?.positive || 0}</li>
-        <li>Neutral Mentions: {selectedTopic.sentiment?.neutral || 0}</li>
-        <li>Negative Mentions: {selectedTopic.sentiment?.negative || 0}</li>
+        <li data-testid="positive-mentions">
+          Positive Mentions: {selectedTopic.sentiment?.positive || 0}
+        </li>
+        <li data-testid="neutral-mentions">
+          Neutral Mentions: {selectedTopic.sentiment?.neutral || 0}
+        </li>
+        <li data-testid="negative-mentions">
+          Negative Mentions: {selectedTopic.sentiment?.negative || 0}
+        </li>
       </ul>
     </div>
   );
