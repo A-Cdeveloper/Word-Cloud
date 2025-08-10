@@ -25,3 +25,8 @@ dist-ssr
 
 # Coverage reports
 coverage/
+
+# Cypress generated files
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
