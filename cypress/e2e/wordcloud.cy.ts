@@ -11,6 +11,16 @@ describe("WordCloud Application", () => {
     cy.get(`[data-testid="no-selection"]`).should("exist");
   });
 
+  it("should show loading state when API is loading", () => {
+    cy.intercept("GET", "/topics.json", (req) => {
+      req.reply((res) => {
+        setTimeout(() => res.send(), 5000); // 5s delay
+      });
+    });
+
+    cy.get(`[data-testid="loading"]`).should("exist");
+  });
+
   it("should show no data state when API returns empty array", () => {
     cy.intercept("GET", "/topics.json", { body: { topics: [] } });
     cy.get(`[data-testid="no-topics"]`).should("exist");
