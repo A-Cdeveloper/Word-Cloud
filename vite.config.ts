@@ -17,6 +17,8 @@ export default defineConfig({
         "**/*.config.*",
         "dist/",
         "coverage/",
+        ".github/",
+        "cypress/",
         "src/App.tsx",
         "src/main.tsx",
         "src/store/",
